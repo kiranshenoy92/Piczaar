@@ -8,14 +8,14 @@
 
 <ion-content padding>
 
- <ion-card *ngFor="let photo of photos">
+ <ion-card *ngFor="let photo of photos | async">
    <ion-card-content>
      <img [src]="photo.src"/>
-     <button (click)="likePicture(photo)" ion-button block>
+     <button (click)="likePicture(photo.$key,photo.likes)" ion-button block>
        <ion-icon name="heart"></ion-icon>
        <ion-badge item-right>{{ photo.likes }}</ion-badge>
      </button>
-     <button (click)="deletePicture(photo)" ion-button color="danger" block>
+     <button (click)="deletePicture(photo.$key)" ion-button color="danger" block>
        <ion-icon name="trash"></ion-icon>
      </button>
    </ion-card-content>

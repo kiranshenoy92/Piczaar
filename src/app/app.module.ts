@@ -2,6 +2,17 @@ import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { AngularFireModule} from 'angularfire2';
+
+
+export const firebaseConfig = {
+    //your firebase config details
+    apiKey: "",
+    authDomain: "",
+    databaseURL: "",
+    storageBucket: "",
+    messagingSenderId: ""
+  };
 
 @NgModule({
   declarations: [
@@ -9,13 +20,14 @@ import { HomePage } from '../pages/home/home';
     HomePage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage
   ],
-  providers: []
+  providers: [  ]
 })
 export class AppModule {}
